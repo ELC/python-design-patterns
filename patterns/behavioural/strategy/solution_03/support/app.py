@@ -1,5 +1,5 @@
 import random
-from typing import Protocol, List, Optional
+from typing import List, Optional, Protocol
 from dataclasses import dataclass, field
 
 from .ticket import SupportTicket
@@ -43,6 +43,5 @@ class CustomerSupport:
             return
 
         ticket_list = processing_strategy(self.tickets)
-
         for ticket in ticket_list:
             ticket.process()

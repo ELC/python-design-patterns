@@ -11,7 +11,7 @@ class SupportTicket:
     def __post_init__(self):
         self.id = str(uuid.uuid4())
 
-    def process(self) -> str:
+    def __str__(self) -> str:
         return (
             "=================================="
             f"Processing ticket id: {self.id}"
@@ -19,3 +19,6 @@ class SupportTicket:
             f"Issue: {self.issue}"
             "=================================="
         )
+
+    def process(self) -> str:
+        return str(self)

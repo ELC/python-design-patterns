@@ -27,7 +27,7 @@ class RandomOrderingStrategy(TicketOrderingStrategy):
     seed: Optional[int] = None
 
     def create_ordering(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        if self.seed is None:
+        if self.seed is not None:
             random.seed(self.seed)
         return random.sample(tickets, len(tickets))
 

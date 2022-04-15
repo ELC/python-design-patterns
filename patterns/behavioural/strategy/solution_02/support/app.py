@@ -1,6 +1,6 @@
 import random
+from typing import List, Optional, Protocol
 from dataclasses import dataclass, field
-from typing import Optional, Protocol, List
 
 from .ticket import SupportTicket
 
@@ -17,9 +17,7 @@ class FIFOOrderingStrategy:
 
 class FILOOrderingStrategy:
     def create_ordering(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        tickets_copy = tickets.copy()
-        tickets_copy.reverse()
-        return tickets_copy
+        return list(reversed(tickets))
 
 
 @dataclass
@@ -27,13 +25,9 @@ class RandomOrderingStrategy:
     seed: Optional[int] = None
 
     def create_ordering(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        tickets_copy = tickets.copy()
-
         if self.seed is not None:
             random.seed(self.seed)
-
-        random.shuffle(tickets_copy)
-        return tickets_copy
+        return random.sample(tickets, len(tickets))
 
 
 @dataclass
@@ -49,6 +43,5 @@ class CustomerSupport:
             return
 
         ticket_list = processing_strategy.create_ordering(self.tickets)
-
         for ticket in ticket_list:
             ticket.process()
