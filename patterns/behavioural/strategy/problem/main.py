@@ -1,4 +1,4 @@
-from .support.app import CustomerSupport
+from .support.app import CustomerSupport, ProcessingTypes
 from .support.ticket import SupportTicket
 
 
@@ -14,7 +14,7 @@ def main():
     for ticket in tickets:
         app.add_ticket(ticket)
 
-    app.process_tickets("random", seed=5)
+    app.process_tickets(ProcessingTypes.RANDOM, seed=5)
 
 
 if __name__ == "__main__":

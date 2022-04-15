@@ -9,8 +9,8 @@
 ```diff
 import random
 +from abc import ABC, abstractmethod
-+from typing import List, Optional
 from dataclasses import dataclass, field
++from typing import List, Optional
 -from typing import List, Literal, Dict, Any
 from .ticket import SupportTicket
 
@@ -41,6 +41,12 @@ from .ticket import SupportTicket
 +        return random.sample(tickets, len(tickets))
 
 
+-class ProcessingTypes(Enum):
+-    FIFO = auto()
+-    FILO = auto()
+-    RANDOM = auto()
+
+
 @dataclass
 class CustomerSupport:
     tickets: List[SupportTicket] = field(default_factory=list)
@@ -50,25 +56,24 @@ class CustomerSupport:
 
 -    def process_tickets(
 -        self,
--        processing_strategy: Literal["fifo", "filo", "random"] = "fifo",
--        **kwargs: Dict[str, Any]
+-        self, processing_strategy: ProcessingTypes = ProcessingTypes.FIFO, **kwargs: Any
 -    ) -> None:
 +    def process_tickets(self, processing_strategy: TicketOrderingStrategy) -> None:
         if len(self.tickets) == 0:
             print("There are no tickets to process. Well done!")
             return
 
--        if processing_strategy == "fifo":
+-        if processing_strategy is ProcessingTypes.FIFO:
 -            for ticket in self.tickets:
 -                ticket.process()
 -            return
 -
--        if processing_strategy == "filo":
+-        if processing_strategy is ProcessingTypes.FILO:
 -            for ticket in reversed(self.tickets):
 -                ticket.process()
 -            return
 -
--        if processing_strategy == "random":
+-        if processing_strategy is ProcessingTypes.RANDOM:
 -            seed = kwargs.get("seed")
 -
 -            if seed is None:
@@ -92,7 +97,7 @@ class CustomerSupport:
 
 
 ```diff
--from .support.app import CustomerSupport
+-from .support.app import CustomerSupport, ProcessingTypes
 +from .support.app import CustomerSupport, RandomOrderingStrategy
 from .support.ticket import SupportTicket
 
@@ -109,7 +114,7 @@ def main():
     for ticket in tickets:
         app.add_ticket(ticket)
 
--    app.process_tickets("random", seed=5)
+-    app.process_tickets(ProcessingTypes.RANDOM, seed=5)
 +    app.process_tickets(RandomOrderingStrategy(seed=5))
 
 
