@@ -15,7 +15,7 @@ class StreamingService(ABC):
     output: BufferData = field(default_factory=StringIO)
     reference: str = field(init=False)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         self.reference = generate_id()
 
     def add_device(self, device: "StreamingService") -> None:

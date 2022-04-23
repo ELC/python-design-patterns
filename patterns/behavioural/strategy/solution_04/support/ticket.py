@@ -8,7 +8,7 @@ class SupportTicket:
     issue: str
     id: str = field(init=False)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         self.id = str(uuid.uuid4())
 
     def __str__(self) -> str:
