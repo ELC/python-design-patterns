@@ -1,7 +1,7 @@
 from .support import CustomerSupport, random_strategy_generator, SupportTicket
 
 
-def main():
+def main() -> None:
     app = CustomerSupport()
 
     tickets = [

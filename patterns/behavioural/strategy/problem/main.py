@@ -1,7 +1,7 @@
 from .support import CustomerSupport, ProcessingTypes, SupportTicket
 
 
-def main():
+def main() -> None:
     app = CustomerSupport()
 
     tickets = [

@@ -125,7 +125,7 @@ class CustomerSupport:
 from .support.ticket import SupportTicket
 
 
-def main():
+def main() -> None:
     app = CustomerSupport()
 
     tickets = [
@@ -350,7 +350,7 @@ class CustomerSupport:
 from .support.ticket import SupportTicket
 
 
-def main():
+def main() -> None:
     app = CustomerSupport()
 
     tickets = [
