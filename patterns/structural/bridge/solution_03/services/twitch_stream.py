@@ -1,4 +1,4 @@
-from . import StreamingService
+from .streaming_service import StreamingService
 from .. import BufferOutput
 
 

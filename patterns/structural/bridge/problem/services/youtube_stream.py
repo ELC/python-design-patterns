@@ -1,7 +1,7 @@
 from io import StringIO
 from dataclasses import dataclass
 
-from . import StreamingService, Quality
+from .streaming_service import StreamingService, Quality
 from .. import BufferOutput, BufferData
 
 

@@ -2,7 +2,7 @@ from io import StringIO
 from dataclasses import dataclass
 from typing import Literal
 
-from . import StreamingDevice
+from .streaming_device import StreamingDevice
 from .. import BufferData
 
 Quality = Literal["360p", "480p", "720p", "1080p", "2160p"]

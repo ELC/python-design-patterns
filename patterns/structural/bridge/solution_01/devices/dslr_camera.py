@@ -1,6 +1,6 @@
 from io import StringIO
 
-from . import StreamingDevice
+from .streaming_device import StreamingDevice
 from .. import BufferData
 
 

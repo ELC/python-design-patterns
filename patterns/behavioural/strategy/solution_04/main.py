@@ -1,5 +1,4 @@
-from .support.app import CustomerSupport, random_strategy_generator
-from .support.ticket import SupportTicket
+from .support import CustomerSupport, random_strategy_generator, SupportTicket
 
 
 def main():

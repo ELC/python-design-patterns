@@ -1,5 +1,4 @@
-from .support.app import CustomerSupport, ProcessingTypes
-from .support.ticket import SupportTicket
+from .support import CustomerSupport, ProcessingTypes, SupportTicket
 
 
 def main():
