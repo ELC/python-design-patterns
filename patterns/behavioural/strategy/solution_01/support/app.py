@@ -39,7 +39,10 @@ class CustomerSupport:
     def add_ticket(self, ticket: SupportTicket) -> None:
         self.tickets.append(ticket)
 
-    def process_tickets(self, processing_strategy: TicketOrderingStrategy) -> None:
+    def process_tickets(
+        self, 
+        processing_strategy: TicketOrderingStrategy
+    ) -> None:
         if len(self.tickets) == 0:
             print("There are no tickets to process. Well done!")
             return

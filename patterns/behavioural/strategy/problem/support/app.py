@@ -1,6 +1,6 @@
 import random
 from dataclasses import dataclass, field
-from typing import List, Literal, Dict, Any
+from typing import List, Any
 from enum import Enum, auto
 
 from .ticket import SupportTicket
@@ -20,7 +20,9 @@ class CustomerSupport:
         self.tickets.append(ticket)
 
     def process_tickets(
-        self, processing_strategy: ProcessingTypes = ProcessingTypes.FIFO, **kwargs: Any
+        self, 
+        processing_strategy: ProcessingTypes = ProcessingTypes.FIFO, 
+        **kwargs: Any
     ) -> None:
         if len(self.tickets) == 0:
             print("There are no tickets to process. Well done!")
@@ -48,4 +50,4 @@ class CustomerSupport:
 
             return
 
-        raise NotImplementedError()
+        raise NotImplementedError

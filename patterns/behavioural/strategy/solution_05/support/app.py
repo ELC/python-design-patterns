@@ -15,13 +15,11 @@ def filo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
     return list(reversed(tickets))
 
 
-def random_strategy_generator(seed: Optional[int] = None) -> TicketOrderingStrategy:
-    def random_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
-        if seed is not None:
-            random.seed(seed)
-        return random.sample(tickets, len(tickets))
+def random_strategy(tickets: List[SupportTicket], seed: Optional[int] = None) -> List[SupportTicket]:
+    if seed is not None:
+        random.seed(seed)
+    return random.sample(tickets, len(tickets))
 
-    return random_strategy
 
 @dataclass
 class CustomerSupport:

@@ -1,3 +1,4 @@
+from enum import Enum, auto
 import random
 from typing import List, Optional, Callable
 from dataclasses import dataclass, field
@@ -5,6 +6,12 @@ from dataclasses import dataclass, field
 from .ticket import SupportTicket
 
 TicketOrderingStrategy = Callable[[List[SupportTicket]], List[SupportTicket]]
+
+
+class ProcessingTypes(Enum):
+    FIFO = auto()
+    FILO = auto()
+    RANDOM = auto()
 
 
 def fifo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
@@ -15,13 +22,11 @@ def filo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
     return list(reversed(tickets))
 
 
-def random_strategy_generator(seed: Optional[int] = None) -> TicketOrderingStrategy:
-    def random_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
-        if seed is not None:
-            random.seed(seed)
-        return random.sample(tickets, len(tickets))
+def random_strategy(tickets: List[SupportTicket], seed: Optional[int] = None) -> List[SupportTicket]:
+    if seed is not None:
+        random.seed(seed)
+    return random.sample(tickets, len(tickets))
 
-    return random_strategy
 
 @dataclass
 class CustomerSupport:

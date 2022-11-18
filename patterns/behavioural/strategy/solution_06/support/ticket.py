@@ -9,7 +9,7 @@ class SupportTicket:
     id: str = field(init=False)
 
     def __post_init__(self) -> None:
-        self.id = uuid.uuid4().hex
+        self.id = str(uuid.uuid4())
 
     def __str__(self) -> str:
         return (
