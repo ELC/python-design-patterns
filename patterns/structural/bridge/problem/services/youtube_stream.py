@@ -21,7 +21,7 @@ class YouTubeStreamingService(StreamingService):
         return collected_buffer
 
     def get_buffer_data(self) -> BufferData:
-        raise NotImplementedError()
+        raise NotImplementedError
 
 
 class YouTubeStreamingServiceWithDSLRCamera(YouTubeStreamingService):
