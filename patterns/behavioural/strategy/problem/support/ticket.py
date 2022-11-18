@@ -20,5 +20,5 @@ class SupportTicket:
             "=================================="
         )
 
-    def process(self) -> str:
-        return str(self)
+    def process(self) -> None:
+        print(str(self))

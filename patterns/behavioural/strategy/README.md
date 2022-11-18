@@ -42,8 +42,8 @@ class SupportTicket:
             "=================================="
         )
 
-    def process(self) -> str:
-        return str(self)
+    def process(self) -> None:
+        print(str(self))
 ```
 
 Then, the different strategies could be represented with an `Enum`:
@@ -461,7 +461,7 @@ from .support.ticket import SupportTicket
 ...
 
 -    app.process_tickets(RandomOrderingStrategy(seed=5))
-+    app.process_tickets(random_strategy_generator(seed=1))
++    app.process_tickets(random_strategy_generator(seed=5))
 ```
 
 ## Solution 5: Using pure functions and Partial Evaluation
@@ -498,7 +498,7 @@ from the standard library is used.
 def main() -> None:
     ...
 
--    app.process_tickets(random_strategy_generator(seed=1))
+-    app.process_tickets(random_strategy_generator(seed=5))
 +    random_strategy_with_seed = partial(random_strategy, seed=5)
 +    app.process_tickets(random_strategy_with_seed)
 

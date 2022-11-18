@@ -16,10 +16,11 @@ def main(strategy: str, strategy_args: Dict[str, Any]) -> None:
     for ticket in tickets:
         app.add_ticket(ticket)
 
-    if strategy.upper() not in ProcessingTypes.__members__:
+    strategy_name = strategy.upper()
+    if strategy_name not in ProcessingTypes.__members__:
         raise ValueError(f"Not Valid Strategy: {strategy}")
 
-    strategy_type = ProcessingTypes[strategy]
+    strategy_type = ProcessingTypes[strategy_name]
     strategy_function = STRATEGIES[strategy_type]
 
     random_strategy_with_seed = partial(strategy_function, **strategy_args)

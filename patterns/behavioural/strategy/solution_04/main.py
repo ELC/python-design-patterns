@@ -13,7 +13,7 @@ def main() -> None:
     for ticket in tickets:
         app.add_ticket(ticket)
 
-    app.process_tickets(random_strategy_generator(seed=1))
+    app.process_tickets(random_strategy_generator(seed=5))
 
 
 if __name__ == "__main__":
