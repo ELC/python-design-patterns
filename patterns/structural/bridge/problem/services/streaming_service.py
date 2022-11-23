@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import List, Literal
-from io import StringIO
 
 from .. import BufferData, BufferOutput, generate_id
 
@@ -12,7 +11,7 @@ Quality = Literal["360p", "480p", "720p", "1080p", "2160p"]
 @dataclass
 class StreamingService(ABC):
     devices: List["StreamingService"] = field(default_factory=list)
-    output: BufferData = field(default_factory=StringIO)
+    output: BufferData = field(default_factory=BufferData)
     reference: str = field(init=False)
 
     def __post_init__(self) -> None:
