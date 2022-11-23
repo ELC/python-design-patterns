@@ -139,15 +139,17 @@ if __name__ == "__main__":
 
 Some of the problems with this solution are:
 
--  It requires to modify `CustomerSupport` each time there is a new approach
+- It requires to modify `CustomerSupport` each time there is a new approach
 - The function `process_tickets` will become larger and larger
 - Managing optional parameters for different strategies will produce many
   validations in `process_tickets`
 
-Below are four different solutions to this problem, the first one is the one
+Below are different solutions to this problem, the first one is the one
 proposed in the GoF Book and the following ones are incremental updates to
 incorporate Python native Features such as Duck Typing (`Protocols`), Class
-callables (`__call__`), and stateful functions (`closures`).
+callables (`__call__`), and stateful functions (`closures`), then the an
+alternative to closures is presented in the form of partial evaluation, finally
+a way to parse user input is introduced.
 
 ## Solution 1: GoF Approach
 
