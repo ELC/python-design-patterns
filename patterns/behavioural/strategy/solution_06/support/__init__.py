@@ -15,9 +15,4 @@ STRATEGIES = {
 }
 
 
-__all__ = [
-    "CustomerSupport",
-    "SupportTicket",
-    "STRATEGIES",
-    "ProcessingTypes"
-]
+__all__ = ["CustomerSupport", "SupportTicket", "STRATEGIES", "ProcessingTypes"]

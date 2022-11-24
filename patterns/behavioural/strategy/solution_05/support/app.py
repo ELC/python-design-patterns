@@ -15,7 +15,9 @@ def filo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
     return list(reversed(tickets))
 
 
-def random_strategy(tickets: List[SupportTicket], seed: Optional[int] = None) -> List[SupportTicket]:
+def random_strategy(
+    tickets: List[SupportTicket], seed: Optional[int] = None
+) -> List[SupportTicket]:
     if seed is not None:
         random.seed(seed)
     return random.sample(tickets, len(tickets))

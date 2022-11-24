@@ -43,7 +43,7 @@ def main() -> None:
         if all(customer.satisfied for customer in customers):
             break
 
-        time.sleep(notification_period)
+        time.sleep(0.05)  # To avoid blocking CPU
 
 
 if __name__ == "__main__":

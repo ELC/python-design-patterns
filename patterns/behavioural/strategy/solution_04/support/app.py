@@ -23,6 +23,7 @@ def random_strategy_generator(seed: Optional[int] = None) -> TicketOrderingStrat
 
     return random_strategy
 
+
 @dataclass
 class CustomerSupport:
     tickets: List[SupportTicket] = field(default_factory=list)

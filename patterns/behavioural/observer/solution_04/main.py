@@ -37,7 +37,9 @@ def main() -> None:
             if current_time >= eta and product not in store.products:
                 store.add_product(product)
 
-        if current_time >= late_customer_arrival and not store.is_subscribed(late_customer):
+        if current_time >= late_customer_arrival and not store.is_subscribed(
+            late_customer
+        ):
             store.subscribe(late_customer, late_customer.interests)
 
         if all(customer.satisfied for customer in customers):
