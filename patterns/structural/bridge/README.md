@@ -1,4 +1,4 @@
-# Strategy Pattern
+# Bridge Pattern
 
 ## Problem
 
