@@ -1,0 +1,40 @@
+
+| Filename | Name | Type | Start:End Line | Complexity | Clasification |
+| -------- | ---- | ---- | -------------- | ---------- | ------------- |
+| main.py | main | F | 5:5 | 9 | B |
+| command\command.py | Command | C | 7:17 | 2 | A |
+| command\command.py | Command.undo | M | 15:17 | 1 | A |
+| command\command.py | Command.__call__ | M | 11:13 | 1 | A |
+| command\set_temperature.py | SetTemperatureCommand | C | 18:30 | 3 | A |
+| command\set_temperature.py | SetTemperatureCommand.undo | M | 27:30 | 2 | A |
+| command\set_temperature.py | SeteableTemperature | C | 7:15 | 2 | A |
+| command\set_temperature.py | SetTemperatureCommand.__call__ | M | 23:25 | 1 | A |
+| command\set_temperature.py | SeteableTemperature.target_temprature_in_celcius | M | 13:15 | 1 | A |
+| command\set_temperature.py | SeteableTemperature.target_temprature_in_celcius | M | 9:11 | 1 | A |
+| command\turn_on_off.py | TurnOffCommand | C | 24:30 | 2 | A |
+| command\turn_on_off.py | TurnOnCommand | C | 15:21 | 2 | A |
+| command\turn_on_off.py | Switchable | C | 6:12 | 2 | A |
+| command\turn_on_off.py | TurnOffCommand.undo | M | 29:30 | 1 | A |
+| command\turn_on_off.py | TurnOffCommand.__call__ | M | 26:27 | 1 | A |
+| command\turn_on_off.py | TurnOnCommand.undo | M | 20:21 | 1 | A |
+| command\turn_on_off.py | TurnOnCommand.__call__ | M | 17:18 | 1 | A |
+| command\turn_on_off.py | Switchable.turn_off | M | 11:12 | 1 | A |
+| command\turn_on_off.py | Switchable.turn_on | M | 8:9 | 1 | A |
+| controllers\iot.py | IoTController.execute | M | 19:26 | 3 | A |
+| controllers\iot.py | IoTController | C | 11:34 | 3 | A |
+| controllers\iot.py | IoTController.undo_all_commands | M | 32:34 | 2 | A |
+| controllers\iot.py | IoTController.undo_last_command | M | 28:30 | 1 | A |
+| controllers\iot.py | IoTController.add_command | M | 16:17 | 1 | A |
+| controllers\remote.py | RemoteController | C | 10:21 | 3 | A |
+| controllers\remote.py | RemoteController.execute | M | 17:21 | 2 | A |
+| controllers\remote.py | RemoteController.add_command | M | 14:15 | 1 | A |
+| heating\heating.py | HeatingSystem.state | M | 37:41 | 2 | A |
+| heating\heating.py | HeatingSystem.target_temprature_in_celcius | M | 27:31 | 2 | A |
+| heating\heating.py | HeatingSystem | C | 17:47 | 2 | A |
+| heating\heating.py | HeatingSystem.turn_off | M | 46:47 | 1 | A |
+| heating\heating.py | HeatingSystem.turn_on | M | 43:44 | 1 | A |
+| heating\heating.py | HeatingSystem.state | M | 33:35 | 1 | A |
+| heating\heating.py | HeatingSystem.target_temprature_in_celcius | M | 23:25 | 1 | A |
+| heating\heating.py | HeatingUnit | C | 10:14 | 1 | A |
+| heating\heating.py | PowerState | C | 5:7 | 1 | A |
+

@@ -1,0 +1,46 @@
+{
+    "main.py": {
+        "mi": 51.73361603672086,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "command\\command.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "command\\set_temperature.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "command\\turn_on_off.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "command\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "controllers\\iot.py": {
+        "mi": 65.94998289189489,
+        "rank": "A"
+    },
+    "controllers\\remote.py": {
+        "mi": 70.42112316808037,
+        "rank": "A"
+    },
+    "controllers\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "heating\\heating.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "heating\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}
