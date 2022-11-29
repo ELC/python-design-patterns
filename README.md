@@ -3,12 +3,20 @@
 
 ## Patterns
 
+### Behavioural
+
 - [Strategy](./patterns/behavioural/strategy/README.md)
-- [Bridge](./patterns/structural/bridge/README.md)
 - [Observer](./patterns/behavioural/observer/README.md)
 - [Iterator](./patterns/behavioural/iterator/README.md)
 - [Command](./patterns/behavioural/command/README.md)
 
+### Creational
+
+### Structural
+
+- [Bridge](./patterns/structural/bridge/README.md)
+
+## Metrics
 
 To generate the metrics, use the following commands from the [radon library](https://pypi.org/project/radon/):
 
