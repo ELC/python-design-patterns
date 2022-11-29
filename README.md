@@ -10,7 +10,7 @@
 - [Command](./patterns/behavioural/command/README.md)
 
 
-The commands to generate the metrics are base on the [radon library](https://pypi.org/project/radon/):
+To generate the metrics, use the following commands from the [radon library](https://pypi.org/project/radon/):
 
 ```
 python -m radon raw . -s -O stats.md
