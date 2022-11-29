@@ -1,0 +1,42 @@
+
+| Filename | Name | Type | Start:End Line | Complexity | Clasification |
+| -------- | ---- | ---- | -------------- | ---------- | ------------- |
+| main.py | main | F | 14:52 | 1 | A |
+| consumer\console_printer.py | ConsolePrinter | C | 11:18 | 3 | A |
+| consumer\console_printer.py | ConsolePrinter.print | M | 12:18 | 2 | A |
+| consumer\console_printer.py | PrintableItem | C | 6:8 | 2 | A |
+| consumer\console_printer.py | PrintableItem.__str__ | M | 7:8 | 1 | A |
+| iterables\aggregate.py | Aggregate | C | 10:13 | 2 | A |
+| iterables\aggregate.py | Aggregate.create_iterator | M | 11:13 | 1 | A |
+| iterables\classroom.py | Classroom | C | 50:56 | 2 | A |
+| iterables\classroom.py | AlphabeticalStudentIterator | C | 44:47 | 2 | A |
+| iterables\classroom.py | RandomStudentIterator | C | 38:41 | 2 | A |
+| iterables\classroom.py | BaseStudentIterator | C | 19:35 | 2 | A |
+| iterables\classroom.py | Student | C | 10:16 | 2 | A |
+| iterables\classroom.py | Classroom.create_iterator | M | 55:56 | 1 | A |
+| iterables\classroom.py | AlphabeticalStudentIterator.__post_init__ | M | 46:47 | 1 | A |
+| iterables\classroom.py | RandomStudentIterator.__post_init__ | M | 40:41 | 1 | A |
+| iterables\classroom.py | BaseStudentIterator.has_more | M | 34:35 | 1 | A |
+| iterables\classroom.py | BaseStudentIterator.next | M | 29:32 | 1 | A |
+| iterables\classroom.py | BaseStudentIterator.__post_init__ | M | 25:27 | 1 | A |
+| iterables\classroom.py | Student.__hash__ | M | 15:16 | 1 | A |
+| iterables\iterator.py | IIterator | C | 7:14 | 2 | A |
+| iterables\iterator.py | IIterator.has_more | M | 12:14 | 1 | A |
+| iterables\iterator.py | IIterator.next | M | 8:10 | 1 | A |
+| iterables\memory.py | MemoryIterator | C | 21:32 | 2 | A |
+| iterables\memory.py | Memory | C | 9:18 | 2 | A |
+| iterables\memory.py | MemoryIterator.has_more | M | 31:32 | 1 | A |
+| iterables\memory.py | MemoryIterator.next | M | 26:29 | 1 | A |
+| iterables\memory.py | Memory.create_iterator | M | 17:18 | 1 | A |
+| iterables\memory.py | Memory.__post_init__ | M | 14:15 | 1 | A |
+| iterables\train.py | Train | C | 36:47 | 3 | A |
+| iterables\train.py | TrainIterator | C | 50:61 | 2 | A |
+| iterables\train.py | Train.__post_init__ | M | 40:44 | 2 | A |
+| iterables\train.py | TrainIterator.has_more | M | 60:61 | 1 | A |
+| iterables\train.py | TrainIterator.next | M | 55:58 | 1 | A |
+| iterables\train.py | Train.create_iterator | M | 46:47 | 1 | A |
+| iterables\train.py | Locomotive | C | 28:33 | 1 | A |
+| iterables\train.py | PassengerCoach | C | 21:25 | 1 | A |
+| iterables\train.py | TankWagon | C | 14:18 | 1 | A |
+| iterables\train.py | TrainCar | C | 6:11 | 1 | A |
+

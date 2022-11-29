@@ -533,3 +533,15 @@ This third solution shows the advantages of the pattern, a change in all the
 devices had no impact in any of the concrete services, only the abstract class
 for StreamingService had to be updated. Such a change in the original
 implementation would have required changes in all the concrete services.
+
+
+# Comparison Table
+
+|                               | Problem | Solution 01 | Solution 02 | Solution 03 |
+|-------------------------------|---------|-------------|-------------|-------------|
+| Total Cyclomatic Complexity   | 36      | 31          | 31          | 25          |
+| Average Cyclomatic Complexity | 1.44    | 1.55        | 1.55        | 1.47        |
+| Average Maintainability Index | 88.97   | 96.87       | 96.87       | 96.87       |
+| LOC                           | 173     | 142         | 139         | 133         |
+| LLOC                          | 107     | 106         | 103         | 98          |
+| SLOC                          | 131     | 106         | 103         | 99          |

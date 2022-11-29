@@ -1,0 +1,34 @@
+{
+    "main.py": {
+        "mi": 61.77103390963963,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "customer\\customer.py": {
+        "mi": 63.0710636056806,
+        "rank": "A"
+    },
+    "customer\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "product\\product.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "product\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "store\\store.py": {
+        "mi": 58.5573005931939,
+        "rank": "A"
+    },
+    "store\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}

@@ -579,3 +579,14 @@ if __name__ == "__main__":
 -    main()
 +    main(strategy="random", strategy_args={"seed": 5})
 ```
+
+# Comparison Table
+
+|                               | Problem | Solution 01 | Solution 02 | Solution 03 | Solution 04 | Solution 05 | Solution 06 |
+|-------------------------------|---------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Total Cyclomatic Complexity   | 24      | 28          | 28          | 28          | 19          | 18          | 20          |
+| Average Cyclomatic Complexity | 2.67    | 1.75        | 1.75        | 1.75        | 1.58        | 1.64        | 1.67        |
+| Average Maintainability Index | 85.34   | 86.08       | 82.74       | 86.19       | 86.69       | 86.43       | 84.41       |
+| LOC                           | 99      | 108         | 106         | 106         | 100         | 103         | 121         |
+| LLOC                          | 64      | 64          | 62          | 62          | 56          | 56          | 70          |
+| SLOC                          | 72      | 80          | 78          | 77          | 73          | 75          | 86          |

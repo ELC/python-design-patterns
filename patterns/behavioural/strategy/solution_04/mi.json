@@ -1,0 +1,22 @@
+{
+    "main.py": {
+        "mi": 74.03933453534945,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "support\\app.py": {
+        "mi": 59.42259677665574,
+        "rank": "A"
+    },
+    "support\\ticket.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "support\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}

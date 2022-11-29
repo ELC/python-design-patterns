@@ -1,0 +1,42 @@
+{
+    "main.py": {
+        "mi": 70.69012901603358,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "consumer\\console_printer.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "consumer\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "iterables\\aggregate.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "iterables\\classroom.py": {
+        "mi": 54.112258716500975,
+        "rank": "A"
+    },
+    "iterables\\iterator.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "iterables\\memory.py": {
+        "mi": 57.91379750820955,
+        "rank": "A"
+    },
+    "iterables\\train.py": {
+        "mi": 52.13313575375224,
+        "rank": "A"
+    },
+    "iterables\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}

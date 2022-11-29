@@ -1,0 +1,26 @@
+{
+    "main.py": {
+        "mi": 69.33443681312195,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\streaming_service.py": {
+        "mi": 64.45978776500665,
+        "rank": "A"
+    },
+    "services\\twitch_stream.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\youtube_stream.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}

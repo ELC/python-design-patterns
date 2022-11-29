@@ -942,3 +942,15 @@ def main():
 In the end, the final solution has a similar amount of lines of code than the
 naive solution, but it has none of the disadvantages while at the same time
 implements the Iterator pattern in a way that native Python features are used.
+
+
+## Comparison Table
+
+|                               | Problem | Solution 01 | Solution 02 | Solution 03 | Solution 04 | Solution 05 |
+|-------------------------------|---------|-------------|-------------|-------------|-------------|-------------|
+| Total Cyclomatic Complexity   | 28      | 55          | 53          | 51          | 46          | 36          |
+| Average Cyclomatic Complexity | 2.00    | 1.45        | 1.77        | 1.70        | 1.77        | 1.71        |
+| Average Maintainability Index | 88.18   | 83.48       | 79.53       | 79.53       | 87.52       | 87.52       |
+| LOC                           | 159     | 278         | 248         | 242         | 213         | 195         |
+| LLOC                          | 90      | 173         | 153         | 148         | 124         | 105         |
+| SLOC                          | 114     | 199         | 177         | 172         | 152         | 138         |

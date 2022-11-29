@@ -1,0 +1,42 @@
+{
+    "main.py": {
+        "mi": 68.72301924445021,
+        "rank": "A"
+    },
+    "__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "devices\\dslr_camera.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "devices\\streaming_device.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "devices\\webcam.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "devices\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\streaming_service.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\twitch_stream.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\youtube_stream.py": {
+        "mi": 100.0,
+        "rank": "A"
+    },
+    "services\\__init__.py": {
+        "mi": 100.0,
+        "rank": "A"
+    }
+}
