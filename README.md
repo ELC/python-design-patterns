@@ -15,5 +15,5 @@ To generate the metrics, use the following commands from the [radon library](htt
 ```
 python -m radon raw . -s -O stats.md
 python -m radon mi . -s -j -O mi.json
-python -m radon cc .  -s --show-closures --total-average --md -O complexity.md
+python -m radon cc . -s --show-closures --total-average --md -O complexity.md
 ```
