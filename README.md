@@ -13,6 +13,16 @@ so on.
 Each pattern has an independent README linked below with a guide to highlight
 differences between implementation details.
 
+## Why This repo?
+
+The [python-patterns repo](https://github.com/faif/python-patterns) already
+provides a succint and clear way to implement idiomatic patterns in Python.
+
+This repo focuses on showing different ways to implement the same pattern,
+including the traditional Java/C/C# like implementation to provide the reader
+with a comparison. Moreover metrics are added to each implementation to better
+contrast solutions.
+
 ## Patterns
 
 ### Behavioural
