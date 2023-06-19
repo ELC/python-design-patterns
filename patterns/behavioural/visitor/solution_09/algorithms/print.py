@@ -1,4 +1,4 @@
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, assert_never
 from ..files import SealedFileType, Audio, Text, Image
 
 T = TypeVar("T", bound=SealedFileType)
@@ -13,6 +13,8 @@ class Print(Generic[T]):
                 PrintText().visit(text)
             case Image() as image:
                 PrintImage().visit(image)
+            case _ as unreachable:
+                assert_never(unreachable)
 
 
 class PrintAudio(Print[Audio]):

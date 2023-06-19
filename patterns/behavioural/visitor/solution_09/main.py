@@ -1,10 +1,10 @@
-from .files import Audio, Image, Text
+from .files import Audio, Image, Text, SealedFileType
 from .algorithms import Print
 
 
 def main():
     collection = [Audio(), Text(), Image()]
-    algorithm = Print()
+    algorithm = Print[SealedFileType]()
     for element in collection:
         algorithm.visit(element)
 

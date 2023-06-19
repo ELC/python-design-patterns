@@ -1,6 +1,6 @@
 from ..files import SealedFileType, Audio, Text, Image
 
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, assert_never
 
 T = TypeVar("T", bound=SealedFileType)
 
@@ -13,8 +13,11 @@ class Print(Generic[T]):
         elif isinstance(element, Text):
             PrintText().visit(element)
             return
-
-        PrintImage().visit(element)
+        elif isinstance(element, Image):
+            PrintImage().visit(element)
+            return
+        else:
+            assert_never(element)
 
 
 class PrintAudio(Print[Audio]):
