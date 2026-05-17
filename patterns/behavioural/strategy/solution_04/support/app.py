@@ -1,22 +1,22 @@
 import random
-from typing import List, Optional, Callable
+from collections.abc import Callable, MutableSequence, Sequence
 from dataclasses import dataclass, field
 
 from .ticket import SupportTicket
 
-TicketOrderingStrategy = Callable[[List[SupportTicket]], List[SupportTicket]]
+TicketOrderingStrategy = Callable[[Sequence[SupportTicket]], list[SupportTicket]]
 
 
-def fifo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
-    return tickets.copy()
+def fifo_strategy(tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
+    return list(tickets)
 
 
-def filo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
+def filo_strategy(tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
     return list(reversed(tickets))
 
 
-def random_strategy_generator(seed: Optional[int] = None) -> TicketOrderingStrategy:
-    def random_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
+def random_strategy_generator(seed: int | None = None) -> TicketOrderingStrategy:
+    def random_strategy(tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
         if seed is not None:
             random.seed(seed)
         return random.sample(tickets, len(tickets))
@@ -26,7 +26,7 @@ def random_strategy_generator(seed: Optional[int] = None) -> TicketOrderingStrat
 
 @dataclass
 class CustomerSupport:
-    tickets: List[SupportTicket] = field(default_factory=list)
+    tickets: MutableSequence[SupportTicket] = field(default_factory=list[SupportTicket])
 
     def add_ticket(self, ticket: SupportTicket) -> None:
         self.tickets.append(ticket)

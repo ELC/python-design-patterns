@@ -1,6 +1,12 @@
 import uuid
 from dataclasses import dataclass, field
 
+TICKET_NAMESPACE = uuid.UUID(int=5)
+
+
+def ticket_id(customer: str, issue: str) -> str:
+    return str(uuid.uuid5(TICKET_NAMESPACE, f"{customer}:{issue}"))
+
 
 @dataclass
 class SupportTicket:
@@ -9,7 +15,7 @@ class SupportTicket:
     id: str = field(init=False)
 
     def __post_init__(self) -> None:
-        self.id = str(uuid.uuid4())
+        self.id = ticket_id(self.customer, self.issue)
 
     def __str__(self) -> str:
         return (

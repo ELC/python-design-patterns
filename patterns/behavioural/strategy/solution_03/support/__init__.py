@@ -1,8 +1,9 @@
 from .app import (
     CustomerSupport,
-    RandomOrderingStrategy,
     FIFOOrderingStrategy,
     FILOOrderingStrategy,
+    RandomOrderingStrategy,
+    TicketOrderingStrategy,
 )
 from .ticket import SupportTicket
 
@@ -12,4 +13,5 @@ __all__ = [
     "FILOOrderingStrategy",
     "RandomOrderingStrategy",
     "SupportTicket",
+    "TicketOrderingStrategy",
 ]

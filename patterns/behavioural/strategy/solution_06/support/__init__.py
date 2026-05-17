@@ -1,5 +1,6 @@
 from .app import (
     CustomerSupport,
+    TicketOrderingStrategy,
     random_strategy,
     fifo_strategy,
     filo_strategy,
@@ -15,4 +16,10 @@ STRATEGIES = {
 }
 
 
-__all__ = ["CustomerSupport", "SupportTicket", "STRATEGIES", "ProcessingTypes"]
+__all__ = [
+    "CustomerSupport",
+    "SupportTicket",
+    "STRATEGIES",
+    "ProcessingTypes",
+    "TicketOrderingStrategy",
+]

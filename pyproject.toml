@@ -1,0 +1,72 @@
+[project]
+name = "python-design-patterns"
+version = "0.0.0"
+description = "Design pattern examples in Python with comparative implementations and metrics"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "mypy>=1.13",
+    "ruff>=0.9",
+    "poethepoet>=0.31",
+]
+
+[tool.uv]
+package = false
+
+[tool.poe.tasks]
+test = "pytest"
+test-cov = "pytest --cov --cov-report=term-missing --cov-fail-under=100"
+format = "ruff format patterns/behavioural/strategy"
+lint = "ruff check patterns/behavioural/strategy"
+check = { shell = "ruff format --check patterns/behavioural/strategy && ruff check patterns/behavioural/strategy" }
+
+[tool.pytest.ini_options]
+testpaths = ["patterns/behavioural/strategy/tests"]
+pythonpath = ["patterns/behavioural"]
+addopts = ["-vv"]
+
+[tool.coverage.run]
+source = [
+    "patterns/behavioural/strategy/problem",
+    "patterns/behavioural/strategy/solution_01",
+    "patterns/behavioural/strategy/solution_02",
+    "patterns/behavioural/strategy/solution_03",
+    "patterns/behavioural/strategy/solution_04",
+    "patterns/behavioural/strategy/solution_05",
+    "patterns/behavioural/strategy/solution_06",
+    "patterns/behavioural/strategy/tests",
+]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@(abc\\.)?abstractmethod",
+    "^\\s*\\.\\.\\.$",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

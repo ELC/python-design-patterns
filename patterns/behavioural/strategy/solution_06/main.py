@@ -1,10 +1,11 @@
+from collections.abc import Mapping
 from functools import partial
-from typing import Any, Dict
+from typing import Any
 
 from .support import CustomerSupport, STRATEGIES, SupportTicket, ProcessingTypes
 
 
-def main(strategy: str, strategy_args: Dict[str, Any]) -> None:
+def main(strategy: str, strategy_args: Mapping[str, Any]) -> None:
     app = CustomerSupport()
 
     tickets = [

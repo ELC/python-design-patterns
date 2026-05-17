@@ -1,6 +1,7 @@
 import random
+from collections.abc import MutableSequence
 from dataclasses import dataclass, field
-from typing import List, Any
+from typing import Any
 from enum import Enum, auto
 
 from .ticket import SupportTicket
@@ -14,7 +15,7 @@ class ProcessingTypes(Enum):
 
 @dataclass
 class CustomerSupport:
-    tickets: List[SupportTicket] = field(default_factory=list)
+    tickets: MutableSequence[SupportTicket] = field(default_factory=list[SupportTicket])
 
     def add_ticket(self, ticket: SupportTicket) -> None:
         self.tickets.append(ticket)
@@ -39,7 +40,7 @@ class CustomerSupport:
         if processing_strategy is ProcessingTypes.RANDOM:
             seed = kwargs.get("seed")
 
-            if seed is None:
+            if seed is not None:
                 random.seed(seed)
 
             random_list = random.sample(self.tickets, len(self.tickets))

@@ -1,11 +1,11 @@
 from enum import Enum, auto
 import random
-from typing import List, Optional, Callable
+from collections.abc import Callable, MutableSequence, Sequence
 from dataclasses import dataclass, field
 
 from .ticket import SupportTicket
 
-TicketOrderingStrategy = Callable[[List[SupportTicket]], List[SupportTicket]]
+TicketOrderingStrategy = Callable[[Sequence[SupportTicket]], list[SupportTicket]]
 
 
 class ProcessingTypes(Enum):
@@ -14,17 +14,17 @@ class ProcessingTypes(Enum):
     RANDOM = auto()
 
 
-def fifo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
-    return tickets.copy()
+def fifo_strategy(tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
+    return list(tickets)
 
 
-def filo_strategy(tickets: List[SupportTicket]) -> List[SupportTicket]:
+def filo_strategy(tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
     return list(reversed(tickets))
 
 
 def random_strategy(
-    tickets: List[SupportTicket], seed: Optional[int] = None
-) -> List[SupportTicket]:
+    tickets: Sequence[SupportTicket], seed: int | None = None
+) -> list[SupportTicket]:
     if seed is not None:
         random.seed(seed)
     return random.sample(tickets, len(tickets))
@@ -32,7 +32,7 @@ def random_strategy(
 
 @dataclass
 class CustomerSupport:
-    tickets: List[SupportTicket] = field(default_factory=list)
+    tickets: MutableSequence[SupportTicket] = field(default_factory=list[SupportTicket])
 
     def add_ticket(self, ticket: SupportTicket) -> None:
         self.tickets.append(ticket)

@@ -1,30 +1,30 @@
 import random
-from typing import List, Optional, Protocol
+from collections.abc import MutableSequence, Sequence
 from dataclasses import dataclass, field
+from typing import Protocol
 
 from .ticket import SupportTicket
 
 
 class TicketOrderingStrategy(Protocol):
-    def __call__(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        """Returns an ordered list of tickets."""
+    def __call__(self, tickets: Sequence[SupportTicket]) -> list[SupportTicket]: ...
 
 
 class FIFOOrderingStrategy:
-    def __call__(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        return tickets.copy()
+    def __call__(self, tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
+        return list[SupportTicket](tickets)
 
 
 class FILOOrderingStrategy:
-    def __call__(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
-        return list(reversed(tickets))
+    def __call__(self, tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
+        return list[SupportTicket](reversed(tickets))
 
 
 @dataclass
 class RandomOrderingStrategy:
-    seed: Optional[int] = None
+    seed: int | None = None
 
-    def __call__(self, tickets: List[SupportTicket]) -> List[SupportTicket]:
+    def __call__(self, tickets: Sequence[SupportTicket]) -> list[SupportTicket]:
         if self.seed is not None:
             random.seed(self.seed)
         return random.sample(tickets, len(tickets))
@@ -32,7 +32,7 @@ class RandomOrderingStrategy:
 
 @dataclass
 class CustomerSupport:
-    tickets: List[SupportTicket] = field(default_factory=list)
+    tickets: MutableSequence[SupportTicket] = field(default_factory=list[SupportTicket])
 
     def add_ticket(self, ticket: SupportTicket) -> None:
         self.tickets.append(ticket)
