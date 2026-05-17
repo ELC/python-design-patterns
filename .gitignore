@@ -126,3 +126,4 @@ dmypy.json
 .vscode/settings.json
 .vscode/launch.json
 .cursor
+AGENTS.md
