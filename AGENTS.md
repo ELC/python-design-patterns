@@ -16,7 +16,7 @@ The project is managed with `uv`, with **all** configuration centralized in
 `.coveragerc`, `setup.cfg`, `tox.ini`, etc.); fold any new setting into
 `pyproject.toml` instead.
 
-- **Python version**: `3.12` (pinned in `.python-version` and `requires-python`).
+- **Python version**: `3.13` (pinned in `.python-version` and `requires-python`).
 - **Dependency manager**: `uv` (lockfile `uv.lock` is committed; `.venv/` is local).
 - **Task runner**: `poethepoet` via `[tool.poe.tasks]`. Never define ad-hoc shell
   scripts that duplicate a `poe` task; add or extend a task instead.
@@ -58,7 +58,7 @@ mocking in tests. Examples:
 **Mocks are forbidden in tests.** If a test would need a mock, change the
 production code so it doesn't.
 
-### Type hints (Python 3.12)
+### Type hints (Python 3.13)
 
 - Prefer **built-in generics**: `list[X]`, `dict[K, V]`, `tuple[X, Y]`, `set[X]`.
 - Prefer `collections.abc` over `typing` for abstract container types:
@@ -125,6 +125,12 @@ This lets tests import from the package root rather than reaching into submodule
   `support/` subpackage importing from a sibling module).
 - All imports go at the **top of the file**. Never import inside a test or
   function body.
+- **Tests must import from the variant package root, never from submodules.**
+  Write `from patterns.behavioural.state.problem import employee_id`, not
+  `from patterns.behavioural.state.problem.support.ids import employee_id`. If
+  a symbol a test legitimately needs isn't re-exported, fix the package's
+  `__init__.py` (and its `support/__init__.py`) — don't reach into internals
+  from a test.
 
 ### `if __name__ == "__main__":`
 
@@ -182,13 +188,73 @@ If you add code, add tests; if you can't cover a line, it shouldn't exist.
   that a dataclass has the field you just declared, or that `__str__` returns
   the string you literally just constructed. Test **behaviour**.
 
+### Every test must have an ACT
+
+Arrange → Act → Assert. Each test body must contain at least one explicit ACT
+statement — a call into the SUT being tested — followed by assertions on the
+result. A test that only contains assertions on a fixture is not testing
+anything; either move the call into the body or delete the test.
+
+```python
+def test_screen_returns_new_process_with_screened_description(
+    sam_sourced_process: HiringProcess,  # Arrange (fixture)
+    sourced_screen_score: float,
+    second_screening_at: datetime,
+) -> None:
+    after = sam_sourced_process.screen(  # Act
+        score=sourced_screen_score, at=second_screening_at,
+    )
+
+    assert sam_sourced_process is not after  # Assert
+    assert str(after).startswith("screened (via ")
+```
+
+### One test per behaviour
+
+For any class that exposes multiple methods (or any module that exposes
+multiple branches), write **one focused test per method/branch**. Each test
+exercises a single public API call from a known precondition; do not combine
+multiple unrelated transitions in a single test.
+
+The "problem" reference variant additionally gets one end-to-end test of
+`main()` to lock in stdout for parity.
+
+### Don't alias fixtures
+
+When a fixture is already named for the precondition under test
+(`screened_applied_process`, `interviewed_applied_process`, …), use it
+**directly** as the receiver of the ACT and the operand of immutability
+assertions. Don't introduce a local `before = fixture` alias.
+
+```python
+# Bad — pointless rename
+def test_abandon(screened_applied_process, abandon_at):
+    before = screened_applied_process
+    after = before.abandon(at=abandon_at)
+    assert before is not after
+
+# Good — fixture name carries the meaning
+def test_abandon(screened_applied_process, abandon_at):
+    after = screened_applied_process.abandon(at=abandon_at)
+    assert screened_applied_process is not after
+```
+
 ### Fixtures
 
 - Every fixture has explicit type annotations on parameters and return type.
-- Move all object instantiation into fixtures
-  (`customer_support`, `support_ticket`, `support_tickets`, …). Tests that only
-  call a function and assert on its return don't need a fixture; tests that
-  build objects do.
+- Move **all** object instantiation and multi-step setup into fixtures
+  (`customer_support`, `support_ticket`, `support_tickets`,
+  `screened_applied_process`, `interviewed_applied_process`, …). Tests that
+  only call a function and assert on its return don't need a fixture; tests
+  that build objects or chain transitions to set up a precondition do.
+- **Compose preconditions by stacking small fixtures.** When a test needs a
+  multi-step setup (e.g. applied → screen → interview → offer), express each
+  step as a fixture that depends on the previous one (`screened_applied`,
+  `interviewed_applied`, `offered_applied`). Tests then pick the right
+  precondition by name; they never chain transitions inline.
+- **Atomic fixtures over grouped data.** Prefer
+  `applied_candidate_name`, `applied_role`, `recruiter` over a single
+  `applied_data` tuple/dict. Each value gets its own fixture.
 - **Side-effect fixtures** (those that mutate state and return nothing) are
   prefixed with `_`, are typed `-> None`, and are consumed via
   `@pytest.mark.usefixtures("_name")`, never by parameter injection. Example:
@@ -301,4 +367,4 @@ matching skill in the same change.
 
 ---
 
-_Last reviewed: 2026-05-17_
+_Last reviewed: 2026-05-17 (Python 3.13) — added ACT-required, one-test-per-behaviour, no-fixture-aliasing, root-package import rules._

@@ -3,8 +3,10 @@ name = "python-design-patterns"
 version = "0.0.0"
 description = "Design pattern examples in Python with comparative implementations and metrics"
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = []
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.13.4",
+]
 
 [dependency-groups]
 dev = [
@@ -13,6 +15,7 @@ dev = [
     "mypy>=1.13",
     "ruff>=0.9",
     "poethepoet>=0.31",
+    "radon>=6.0.1",
 ]
 
 [tool.uv]
@@ -21,25 +24,25 @@ package = false
 [tool.poe.tasks]
 test = "pytest"
 test-cov = "pytest --cov --cov-report=term-missing --cov-fail-under=100"
-format = "ruff format patterns/behavioural/strategy"
-lint = "ruff check patterns/behavioural/strategy"
-check = { shell = "ruff format --check patterns/behavioural/strategy && ruff check patterns/behavioural/strategy" }
+format = "ruff format patterns/behavioural/strategy patterns/behavioural/state"
+lint = "ruff check patterns/behavioural/strategy patterns/behavioural/state"
+check = { shell = "ruff format --check patterns/behavioural/strategy patterns/behavioural/state && ruff check patterns/behavioural/strategy patterns/behavioural/state" }
 
 [tool.pytest.ini_options]
-testpaths = ["patterns/behavioural/strategy/tests"]
-pythonpath = ["patterns/behavioural"]
+testpaths = [
+    "patterns/behavioural/strategy/tests",
+    "patterns/behavioural/state/tests",
+]
+pythonpath = [
+    ".",
+    "patterns/behavioural",
+]
 addopts = ["-vv"]
 
 [tool.coverage.run]
 source = [
-    "patterns/behavioural/strategy/problem",
-    "patterns/behavioural/strategy/solution_01",
-    "patterns/behavioural/strategy/solution_02",
-    "patterns/behavioural/strategy/solution_03",
-    "patterns/behavioural/strategy/solution_04",
-    "patterns/behavioural/strategy/solution_05",
-    "patterns/behavioural/strategy/solution_06",
-    "patterns/behavioural/strategy/tests",
+    "patterns/behavioural/strategy/**",
+    "patterns/behavioural/state/**",
 ]
 
 [tool.coverage.report]
@@ -60,13 +63,13 @@ exclude_lines = [
 
 [tool.ruff]
 line-length = 88
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.format]
 quote-style = "double"
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
